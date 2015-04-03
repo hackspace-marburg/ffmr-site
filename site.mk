@@ -27,3 +27,9 @@ DEFAULT_GLUON_RELEASE := development-snapshot-$(shell date '+%Y%m%d%H%M%S')
 
 # Allow overriding the release number from the command line
 GLUON_RELEASE ?= $(DEFAULT_GLUON_RELEASE)
+
+# Default priority for updates.
+GLUON_PRIORITY ?= 0
+
+# Languages to include
+GLUON_LANGS ?= en de
