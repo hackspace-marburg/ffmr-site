@@ -25,10 +25,8 @@ GLUON_SITE_PACKAGES := \
   iptables \
   haveged
 
-DEFAULT_GLUON_RELEASE := 2015.1.2-dev-snapshot-$(shell date '+%Y%m%d%H%M%S')
-
 # Allow overriding the release number from the command line
-GLUON_RELEASE ?= $(DEFAULT_GLUON_RELEASE)
+GLUON_RELEASE ?= snapshot-$(shell date '+%Y%m%d%H%M%S')
 
 # Default priority for updates.
 GLUON_PRIORITY ?= 0
