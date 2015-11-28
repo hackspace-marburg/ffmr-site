@@ -1,7 +1,7 @@
-Freifunk Fulda - Site configuration
+Freifunk Marburg - Site configuration
 ===================================
 
-This repo holds the site configuration for the Freifunk Fulda build of gluon.
+This repo holds the site configuration for the Freifunk Marburg build of gluon.
 
 
 Repository structure
@@ -23,7 +23,6 @@ To do a full build use the following commands:
 ./build.sh -c build -b snapshot -n b001
 ```
 
-
 Upload and sign the firmware
 ----------------------------
 
@@ -39,3 +38,18 @@ To sign already uploaded images, you can use the following command:
 ./sign.sh /path/to/your/private.key snapshot
 ```
 
+Jenkins
+-------
+
+Sample configuration for Jenkins:
+
+```
+echo "BUILD_DATE=$(date '+%Y%m%d%H%M%S')"
+
+rm -fR "${WORKSPACE}/gluon/images"
+./build.sh -d -b "${GIT_BRANCH}" -c update -n "${BUILD_NUMBER}-${BUILD_DATE}" -w "${WORKSPACE}" -m "V=s"
+./build.sh -d -b "${GIT_BRANCH}" -c download -n "${BUILD_NUMBER}-${BUILD_DATE}" -w "${WORKSPACE}" -m "V=s"
+./build.sh -d -b "${GIT_BRANCH}" -c build -n "${BUILD_NUMBER}-${BUILD_DATE}" -w "${WORKSPACE}" -m "V=s"
+./build.sh -d -b "${GIT_BRANCH}" -c sign -n "${BUILD_NUMBER}-${BUILD_DATE}" -w "${WORKSPACE}" -m "V=s"
+./build.sh -d -b "${GIT_BRANCH}" -c upload -n "${BUILD_NUMBER}-${BUILD_DATE}" -w "${WORKSPACE}" -m "V=s"
+```
