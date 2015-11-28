@@ -5,16 +5,17 @@
 # This is used by firmware developers to sign a release after it was
 # uploaded by the build system.
 #
-# Source: https://github.com/freifunk-fulda
-# Contact: fffd-noc@lists.open-mail.net
-# Web: https://fulda.freifunk.net
+# Source: https://github.com/hackspace-marburg/ffmr-site
+# Original: https://github.com/freifunk-fulda
+# Contact: freifunk@hsmr.cc
+# Web: https://marburg.freifunk.net
 # =====================================================================
 
 # Basic configuration
 SRV_USER="root"
-SRV_HOST="firmware.fulda.freifunk.net"
+SRV_HOST="firmware.marburg.freifunk.net"
 SRV_PORT=22022
-SRV_PATH="/var/www/downloads.freifunk-fulda.de/firmware"
+SRV_PATH="/var/www/firmware.marburg.freifunk.net/firmware"
 
 # Help function used in error messages and -h option
 usage() {

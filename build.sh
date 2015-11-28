@@ -1,14 +1,16 @@
 #!/bin/bash -e
-# =====================================================================
-# Build script for Freifunk Fulda firmware runningn on Jenkins CI
+# ======================================================================
+# Build script for Freifunk Marburg firmware runningn on Jenkins CI
 #
-# Source: https://github.com/freifunk-fulda
-# Contact: fffd-noc@lists.open-mail.net
-# Web: https://fulda.freifunk.net
+# Source: https://github.com/hackspace-marburg/ffmr-site
+# Original: https://github.com/freifunk-fulda
+# Contact: freifunk@hsmr.cc
+# Web: https://marburg.freifunk.net
 #
 # Credits:
 #   - Freifunk Darmstadt for your great support
-# =====================================================================
+#   - Freifunk Fulda for the build process and their overall hospitality
+# ======================================================================
 
 # Default make options
 MAKEOPTS="-j 4 V=s"
@@ -23,7 +25,7 @@ SITEDIR="$(pwd)"
 BUILD="snapshot"
 
 # Specify deployment server and user
-DEPLOYMENT_SERVER="firmware.fulda.freifunk.net"
+DEPLOYMENT_SERVER="firmware.marburg.freifunk.net"
 DEPLOYMENT_USER="deployment"
 
 # Error codes
@@ -32,7 +34,7 @@ E_ILLEGAL_ARGS=126
 # Help function used in error messages and -h option
 usage() {
   echo ""
-  echo "Build script for Freifunk-Fulda gluon firmware."
+  echo "Build script for Freifunk Marburg gluon firmware."
   echo ""
   echo "-b: Firmware branch name (e.g. development)"
   echo "    Default: current git branch"
