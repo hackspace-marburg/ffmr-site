@@ -1,8 +1,7 @@
-# freifunk fulda packages
+# freifunk marburg packages
 #
-GLUON_SITE_FEEDS='fffd_packages'
+#GLUON_SITE_FEEDS='ffmr_packages'
 
-PACKAGES_FFFD_PACKAGES_REPO=git://github.com/freifunk-fulda/fffd-packages.git
-PACKAGES_FFFD_PACKAGES_COMMIT=15db9e219506674125fd13fcf673c1e99458ad6f
-PACKAGES_FFFD_PACKAGES_BRANCH=testing
-
+#PACKAGES_FFMR_PACKAGES_REPO=git://github.com/hackspace-marburg/ffmr-packages.git
+#PACKAGES_FFMR_PACKAGES_COMMIT=
+#PACKAGES_FFMR_PACKAGES_BRANCH=testing
