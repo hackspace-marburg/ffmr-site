@@ -251,7 +251,7 @@ upload() {
       mkdir \
           --parents \
           --verbose \
-          "firmware/${TARGET}/${RELEASE}"
+          "firmware/${TARGET}"
 
   # Copy images to server
   rsync \
@@ -261,18 +261,7 @@ upload() {
       --progress \
       --rsh="${SSH}" \
       "images/" \
-      "${DEPLOYMENT_USER}@${DEPLOYMENT_SERVER}:firmware/${TARGET}/${RELEASE}"
-
-  # Link latest upload in target to 'current'
-  ${SSH} \
-      ${DEPLOYMENT_USER}@${DEPLOYMENT_SERVER} \
-      -- \
-      ln \
-          --symbolic \
-          --force \
-          --no-target-directory \
-          "${RELEASE}" \
-          "firmware/${TARGET}/current"
+      "${DEPLOYMENT_USER}@${DEPLOYMENT_SERVER}:firmware/${TARGET}"
 }
 
 (
