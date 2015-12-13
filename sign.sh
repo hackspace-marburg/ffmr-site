@@ -72,7 +72,7 @@ esac
 scp \
   -o stricthostkeychecking=no \
   -P "${SRV_PORT}" \
-  "${SRV_USER}@${SRV_HOST}:${SRV_PATH}/${TARGET}/current/sysupgrade/${BRANCH}.manifest" \
+  "${SRV_USER}@${SRV_HOST}:${SRV_PATH}/${TARGET}/sysupgrade/${BRANCH}.manifest" \
   "${TMP}"
 
 # Sign the local file
@@ -85,4 +85,4 @@ scp \
   -o stricthostkeychecking=no \
   -P "${SRV_PORT}" \
   "${TMP}" \
-  "${SRV_USER}@${SRV_HOST}:${SRV_PATH}/${TARGET}/current/sysupgrade/${BRANCH}.manifest"
+  "${SRV_USER}@${SRV_HOST}:${SRV_PATH}/${TARGET}/sysupgrade/${BRANCH}.manifest"
