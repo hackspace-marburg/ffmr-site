@@ -1,7 +1,7 @@
 # freifunk marburg packages
 #
-#GLUON_SITE_FEEDS='ffmr_packages'
+GLUON_SITE_FEEDS='ffmr_packages'
 
-#PACKAGES_FFMR_PACKAGES_REPO=git://github.com/hackspace-marburg/ffmr-packages.git
-#PACKAGES_FFMR_PACKAGES_COMMIT=
-#PACKAGES_FFMR_PACKAGES_BRANCH=testing
+PACKAGES_FFMR_PACKAGES_REPO=git://github.com/hackspace-marburg/ffmr-packages.git
+PACKAGES_FFMR_PACKAGES_COMMIT=141403cf4251e81d01617e7fc27c975dd599cd55
+PACKAGES_FFMR_PACKAGES_BRANCH=master
