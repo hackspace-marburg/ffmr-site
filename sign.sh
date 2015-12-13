@@ -15,7 +15,7 @@
 SRV_USER="firmware"
 SRV_HOST="firmware.marburg.freifunk.net"
 SRV_PORT=7331
-SRV_PATH="/var/www/firmware.marburg.freifunk.net/firmware"
+SRV_PATH="/home/firmware/firmware"
 
 # Help function used in error messages and -h option
 usage() {
