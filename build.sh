@@ -1,6 +1,6 @@
 #!/bin/bash -e
 # ======================================================================
-# Build script for Freifunk Marburg firmware runningn on Jenkins CI
+# Build script for Freifunk Marburg firmware
 #
 # Source: https://github.com/hackspace-marburg/ffmr-site
 # Original: https://github.com/freifunk-fulda
@@ -26,7 +26,8 @@ BUILD="snapshot"
 
 # Specify deployment server and user
 DEPLOYMENT_SERVER="firmware.marburg.freifunk.net"
-DEPLOYMENT_USER="deployment"
+DEPLOYMENT_SERVER_PORT="7331"
+DEPLOYMENT_USER="firmware"
 
 # Error codes
 E_ILLEGAL_ARGS=126
@@ -167,7 +168,7 @@ update() {
       update
 
   for TARGET in ${TARGETS}; do
-    echo "--- Update Gluon Dependencies for target: ${TARGET}"
+    echo "--- Updating Gluon Dependencies for target: ${TARGET}"
     make ${MAKEOPTS} \
         GLUON_BRANCH="${BRANCH}" \
         GLUON_RELEASE="${RELEASE}" \
@@ -180,7 +181,7 @@ update() {
 
 download() {
   for TARGET in ${TARGETS}; do
-    echo "--- Download Gluon Dependencies for target: ${TARGET}"
+    echo "--- Downloading Gluon Dependencies for target: ${TARGET}"
     make ${MAKEOPTS} \
         GLUON_BRANCH="${BRANCH}" \
         GLUON_RELEASE="${RELEASE}" \
@@ -193,7 +194,7 @@ download() {
 
 build() {
   for TARGET in ${TARGETS}; do
-    echo "--- Build Gluon Images for target: ${TARGET}"
+    echo "--- Building Gluon Images for target: ${TARGET}"
     make ${MAKEOPTS} \
         GLUON_BRANCH="${BRANCH}" \
         GLUON_RELEASE="${RELEASE}" \
@@ -203,7 +204,7 @@ build() {
         all
   done
 
-  echo "--- Build Gluon Manifest: ${TARGET}"
+  echo "--- Building Gluon Manifest: ${TARGET}"
   make ${MAKEOPTS} \
       GLUON_BRANCH="${BRANCH}" \
       GLUON_RELEASE="${RELEASE}" \
@@ -213,22 +214,22 @@ build() {
 }
 
 sign() {
-  echo "--- Sign Gluon Firmware Build"
+  echo "--- Signing Gluon Firmware Build"
 
   # Add the signature to the local manifest
   contrib/sign.sh \
-      ~/freifunk/autoupdate_secret_jenkins \
-      images/sysupgrade/${BRANCH}.manifest
+      "${HOME}/autoupdate_secret_ci" \
+      "images/sysupgrade/${BRANCH}.manifest"
 }
 
 upload() {
-  echo "--- Upload Gluon Firmware Images and Manifest"
+  echo "--- Uploading Gluon Firmware Images and Manifest"
 
   # Build the ssh command to use
   SSH="ssh"
-  SSH="${SSH} -i ${HOME}/.ssh/deploy_id_rsa"
-  SSH="${SSH} -o stricthostkeychecking=no"
-  SSH="${SSH} -p 22022"
+  SSH="${SSH} -i ${HOME}/.ssh/id_rsa"
+  #SSH="${SSH} -o stricthostkeychecking=no"
+  SSH="${SSH} -p ${DEPLOYMENT_SERVER_PORT}"
 
   # Determine upload target prefix
   case "${BRANCH}" in
