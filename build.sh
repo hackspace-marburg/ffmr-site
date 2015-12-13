@@ -153,8 +153,8 @@ fi
 BRANCH="${BRANCH#origin/}" # Use the current git branch as autoupdate branch
 BRANCH="${BRANCH//\//-}"   # Replace all slashes with dashes
 
-# Add the build identifer to the release identifier
-RELEASE="${RELEASE}-${BUILD}"
+# Add the release identifer to the build identifier
+RELEASE="${BUILD}-${RELEASE}"
 
 # Number of days that may pass between releasing an updating
 PRIORITY=1
