@@ -12,9 +12,9 @@
 # =====================================================================
 
 # Basic configuration
-SRV_USER="root"
+SRV_USER="firmware"
 SRV_HOST="firmware.marburg.freifunk.net"
-SRV_PORT=22022
+SRV_PORT=7331
 SRV_PATH="/var/www/firmware.marburg.freifunk.net/firmware"
 
 # Help function used in error messages and -h option
@@ -58,8 +58,8 @@ TMP="$(mktemp)"
 # Determine upload target prefix
 case "${BRANCH}" in
   stable| \
-  testing| \
-  development)
+  snapshot| \
+  experimental)
     TARGET="${BRANCH}"
     ;;
 

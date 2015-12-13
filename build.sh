@@ -26,7 +26,7 @@ BUILD="snapshot"
 
 # Specify deployment server and user
 DEPLOYMENT_SERVER="firmware.marburg.freifunk.net"
-DEPLOYMENT_SERVER_PORT="7331"
+DEPLOYMENT_SERVER_PORT=7331
 DEPLOYMENT_USER="firmware"
 
 # Error codes
@@ -234,8 +234,8 @@ upload() {
   # Determine upload target prefix
   case "${BRANCH}" in
     stable| \
-    testing| \
-    development)
+    snapshot| \
+    experimental)
       TARGET="${BRANCH}"
       ;;
 
