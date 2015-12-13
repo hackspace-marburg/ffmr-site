@@ -11,6 +11,7 @@ GLUON_SITE_PACKAGES := \
     gluon-config-mode-mesh-vpn \
     gluon-ebtables-filter-multicast \
     gluon-ebtables-filter-ra-dhcp \
+    gluon-ffmr-yolokey-client \
     gluon-luci-theme \
     gluon-luci-admin \
     gluon-luci-autoupdater \
