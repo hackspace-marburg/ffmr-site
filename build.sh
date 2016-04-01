@@ -15,8 +15,8 @@
 # Default make options
 MAKEOPTS="-j 4 V=s"
 
-# Default to build all Gluon targets if parameter -t is not set
-TARGETS="ar71xx-generic ar71xx-nand mpc85xx-generic x86-generic x86-kvm_guest"
+# Default to build all Gluon targets if parameter -t is not set                                   # broken targets
+TARGETS="ar71xx-generic ar71xx-nand mpc85xx-generic x86-generic x86-kvm_guest x86-64 x86-xen_domu ramips-rt305x brcm2708-bcm2708 brcm2708-bcm2709 sunxi"
 
 # Default is set to use current work directory
 SITEDIR="$(pwd)"
@@ -48,6 +48,8 @@ usage() {
   echo "    Default: \"${BUILD}\""
   echo "-t: Gluon targets architectures to build"
   echo "    Default: \"${TARGETS}\""
+  echo "-k: Allow broken targets (optional)"
+  echo "    Default: 0"
   echo "-r: Release number (optional)"
   echo "    Default: fetched from release file"
   echo "-w: Path to site directory"
@@ -109,6 +111,9 @@ while getopts b:c:dhm:n:t:w: flag; do
     r)
       RELEASE="${OPTARG}"
       ;;
+    k)
+      BROKEN=1
+      ;;
     w)
       # Use the root project as site-config for make commands below
       SITEDIR="${OPTARG}"
@@ -165,6 +170,7 @@ update() {
       GLUON_RELEASE="${RELEASE}" \
       GLUON_PRIORITY="${PRIORITY}" \
       GLUON_SITEDIR="${SITEDIR}" \
+      BROKEN="${BROKEN}" \
       update
 
   for TARGET in ${TARGETS}; do
@@ -175,6 +181,7 @@ update() {
         GLUON_PRIORITY="${PRIORITY}" \
         GLUON_SITEDIR="${SITEDIR}" \
         GLUON_TARGET="${TARGET}" \
+        BROKEN="${BROKEN}" \
         clean
   done
 }
@@ -188,6 +195,7 @@ download() {
         GLUON_PRIORITY="${PRIORITY}" \
         GLUON_SITEDIR="${SITEDIR}" \
         GLUON_TARGET="${TARGET}" \
+        BROKEN="${BROKEN}" \
         download
   done
 }
@@ -201,6 +209,7 @@ build() {
         GLUON_PRIORITY="${PRIORITY}" \
         GLUON_SITEDIR="${SITEDIR}" \
         GLUON_TARGET="${TARGET}" \
+        BROKEN="${BROKEN}" \
         all
   done
 
@@ -210,6 +219,7 @@ build() {
       GLUON_RELEASE="${RELEASE}" \
       GLUON_PRIORITY="${PRIORITY}" \
       GLUON_SITEDIR="${SITEDIR}" \
+      BROKEN="${BROKEN}" \
       manifest
 }
 
