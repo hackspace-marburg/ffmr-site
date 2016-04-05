@@ -63,7 +63,7 @@ if [[ "${#}" == 0 ]]; then
 fi
 
 # Evaluate arguments for build script.
-while getopts b:c:dhm:n:t:kw: flag; do
+while getopts b:c:dhm:n:t:r:kw: flag; do
   case ${flag} in
     b)
         BRANCH="${OPTARG}"
@@ -158,8 +158,8 @@ fi
 BRANCH="${BRANCH#origin/}" # Use the current git branch as autoupdate branch
 BRANCH="${BRANCH//\//-}"   # Replace all slashes with dashes
 
-# Add the release identifer to the build identifier
-RELEASE="${BUILD}-${RELEASE}"
+# Add the build identifer to the release identifier.
+RELEASE="${RELEASE}-${BUILD}"
 
 # Number of days that may pass between releasing an updating
 PRIORITY=1
