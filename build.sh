@@ -229,7 +229,7 @@ sign() {
   # Add the signature to the local manifest
   contrib/sign.sh \
       "${HOME}/autoupdate_secret_ci" \
-      "images/sysupgrade/${BRANCH}.manifest"
+      "output/images/sysupgrade/${BRANCH}.manifest"
 }
 
 upload() {
@@ -270,7 +270,7 @@ upload() {
       --compress \
       --progress \
       --rsh="${SSH}" \
-      "images/" \
+      "output/images/" \
       "${DEPLOYMENT_USER}@${DEPLOYMENT_SERVER}:firmware/${TARGET}"
 }
 
