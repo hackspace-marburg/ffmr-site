@@ -1,4 +1,4 @@
 [submodule "gluon"]
 	path = gluon
 	url = https://github.com/freifunk-gluon/gluon.git
-	branch = master
+	branch = v2016.1.3
