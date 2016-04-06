@@ -256,22 +256,34 @@ upload() {
 
   # Create the target directory on server
   ${SSH} \
-      ${DEPLOYMENT_USER}@${DEPLOYMENT_SERVER} \
-      -- \
-      mkdir \
-          --parents \
-          --verbose \
-          "firmware/${TARGET}"
+    ${DEPLOYMENT_USER}@${DEPLOYMENT_SERVER} \
+    -- \
+    mkdir \
+      --parents \
+      --verbose \
+      "firmware/${TARGET}/${RELEASE}"
 
   # Copy images to server
   rsync \
-      --verbose \
-      --recursive \
-      --compress \
-      --progress \
-      --rsh="${SSH}" \
-      "output/images/" \
-      "${DEPLOYMENT_USER}@${DEPLOYMENT_SERVER}:firmware/${TARGET}"
+    --verbose \
+    --recursive \
+    --compress \
+    --progress \
+    --copy-links \
+    --rsh="${SSH}" \
+    "output/images/" \
+    "${DEPLOYMENT_USER}@${DEPLOYMENT_SERVER}:firmware/${TARGET}/${RELEASE}"
+
+  # Link latest upload in target to web
+  ${SSH} \
+    ${DEPLOYMENT_USER}@${DEPLOYMENT_SERVER} \
+    -- \
+    ln \
+      --symbolic \
+      --force \
+      --no-target-directory \
+      "${RELEASE}" \
+      "firmware/${TARGET}/current"
 }
 
 (
