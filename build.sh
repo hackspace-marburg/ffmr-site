@@ -254,14 +254,25 @@ upload() {
       ;;
   esac
 
-  # Create the target directory on server
+  # Create the module and target directories on server
   ${SSH} \
     ${DEPLOYMENT_USER}@${DEPLOYMENT_SERVER} \
     -- \
     mkdir \
       --parents \
       --verbose \
+      "modules/" \
       "firmware/${TARGET}/${RELEASE}"
+
+  # Copy modules to server
+  rsync \
+    --verbose \
+    --recursive \
+    --compress \
+    --copy-links \
+    --rsh="${SSH}" \
+    "output/modules/" \
+    "${DEPLOYMENT_USER}@${DEPLOYMENT_SERVER}:modules/"
 
   # Copy images to server
   rsync \
