@@ -39,7 +39,7 @@ usage() {
   echo ""
   echo "-b: Firmware branch name (e.g. development)"
   echo "    Default: current git branch"
-  echo "-c: Build command: update | download | build | sign | upload"
+  echo "-c: Build command: update | download | build | manifest | sign | upload"
   echo "-d: Enable bash debug output"
   echo "-h: Show this help"
   echo "-m: Setting for make options (optional)"
@@ -77,6 +77,9 @@ while getopts b:c:dhm:n:t:r:kw: flag; do
           COMMAND="${OPTARG}"
           ;;
         build)
+          COMMAND="${OPTARG}"
+          ;;
+        manifest)
           COMMAND="${OPTARG}"
           ;;
         sign)
@@ -182,7 +185,7 @@ update() {
         GLUON_SITEDIR="${SITEDIR}" \
         GLUON_TARGET="${TARGET}" \
         BROKEN="${BROKEN}" \
-        clean
+        dirclean
   done
 }
 
@@ -212,7 +215,9 @@ build() {
         BROKEN="${BROKEN}" \
         all
   done
+}
 
+manifest() {
   echo "--- Building Gluon Manifest: ${TARGET}"
   make ${MAKEOPTS} \
       GLUON_BRANCH="${BRANCH}" \
