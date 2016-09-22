@@ -31,6 +31,9 @@ GLUON_SITE_PACKAGES := \
 DEFAULT_GLUON_RELEASE := snapshot-$(shell date '+%Y%m%d%H%M%S')
 DEFAULT_GLUON_PRIORITY := 0
 
+# Region code required for some images; supported values: us eu
+GLUON_REGION ?= eu
+
 # languages to include in images
 GLUON_LANGS ?= en de
 
