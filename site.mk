@@ -34,6 +34,9 @@ DEFAULT_GLUON_PRIORITY := 0
 # Region code required for some images; supported values: us eu
 GLUON_REGION ?= eu
 
+# Generate images with 11s meshing for ath10k devices
+GLUON_ATH10K_MESH ?= 11s
+
 # languages to include in images
 GLUON_LANGS ?= en de
 
