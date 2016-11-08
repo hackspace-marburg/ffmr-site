@@ -1,4 +1,4 @@
 [submodule "gluon"]
 	path = gluon
 	url = https://github.com/hackspace-marburg/ffmr-gluon.git
-	branch = v2016.2
+	branch = v2016.2.1
