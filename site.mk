@@ -12,20 +12,17 @@ GLUON_SITE_PACKAGES := \
     gluon-ebtables-filter-multicast \
     gluon-ebtables-filter-ra-dhcp \
     gluon-ffmr-yolokey-client \
-    gluon-luci-theme \
-    gluon-luci-admin \
-    gluon-luci-autoupdater \
-    gluon-luci-portconfig \
-    gluon-luci-private-wifi \
-    gluon-luci-wifi-config \
-    gluon-luci-mesh-vpn-fastd \
-    gluon-next-node \
+    gluon-web-admin \
+    gluon-web-autoupdater \
+    gluon-web-network \
+    gluon-web-private-wifi \
+    gluon-web-wifi-config \
+    gluon-web-mesh-vpn-fastd \
     gluon-mesh-vpn-fastd \
     gluon-radvd \
     gluon-setup-mode \
     gluon-status-page \
     iwinfo \
-    iptables \
     haveged
 
 DEFAULT_GLUON_RELEASE := snapshot-$(shell date '+%Y%m%d%H%M%S')
