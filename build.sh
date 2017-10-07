@@ -269,14 +269,14 @@ upload() {
       "modules/" \
       "firmware/${TARGET}/${RELEASE}"
 
-  # Copy modules to server
+  # Copy packages / modules to server
   rsync \
     --verbose \
     --recursive \
     --compress \
     --copy-links \
     --rsh="${SSH}" \
-    "output/modules/" \
+    "output/packages/" \
     "${DEPLOYMENT_USER}@${DEPLOYMENT_SERVER}:modules/"
 
   # Copy images to server
