@@ -53,3 +53,28 @@ rm -fR "${WORKSPACE}/gluon/images"
 ./build.sh -d -b "${GIT_BRANCH}" -c sign -n "${BUILD_NUMBER}-${BUILD_DATE}" -w "${WORKSPACE}" -m "V=s"
 ./build.sh -d -b "${GIT_BRANCH}" -c upload -n "${BUILD_NUMBER}-${BUILD_DATE}" -w "${WORKSPACE}" -m "V=s"
 ```
+
+FAQ
+---
+
+### Errors with `hardening-wrapper`
+
+If an error like the following occurs, it may be due to the `hardening-wrapper`
+under Arch Linux.
+
+```
+Build dependency: \nPlease reinstall the GNU C Compiler (4.8 or later) - it appears to be broken
+Build dependency: Please install ncurses. (Missing libncurses.so or ncurses.h)
+```
+
+To fix this, either adjust the internal link to the `gcc` or modify your `PATH`
+before the first run of `./build.sh`.
+
+```
+# Fix path
+export PATH=… # your previous PATH, just without the hardening part
+
+# Update link
+unlink gluon/openwrt/staging_dir/host/bin/gcc
+ln -s /usr/bin/gcc gluon/openwrt/staging_dir/host/bin/gcc
+```
