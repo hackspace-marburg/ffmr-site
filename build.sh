@@ -18,6 +18,9 @@ MAKEOPTS="-j 4 V=s"
 # Default to build all Gluon targets if parameter -t is not set
 TARGETS="ar71xx-generic ar71xx-nand ar71xx-tiny brcm2708-bcm2708 brcm2708-bcm2709 ipq40xx mpc85xx-generic ramips-mt7620 ramips-mt7621 ramips-mt76x8 ramips-rt305x sunxi-cortexa7 x86-64 x86-generic x86-geode"
 
+# Specify if depricated targets should be build, e.g., ar71xx-tiny.
+DEPRECATED="1"
+
 # Default is set to use current work directory
 SITEDIR="$(pwd)"
 
@@ -173,6 +176,7 @@ update() {
       GLUON_RELEASE="${RELEASE}" \
       GLUON_PRIORITY="${PRIORITY}" \
       GLUON_SITEDIR="${SITEDIR}" \
+      GLUON_DEPRECATED="${DEPRECATED}" \
       BROKEN="${BROKEN}" \
       update
 
@@ -184,6 +188,7 @@ update() {
         GLUON_PRIORITY="${PRIORITY}" \
         GLUON_SITEDIR="${SITEDIR}" \
         GLUON_TARGET="${TARGET}" \
+        GLUON_DEPRECATED="${DEPRECATED}" \
         BROKEN="${BROKEN}" \
         dirclean
   done
@@ -198,6 +203,7 @@ download() {
         GLUON_PRIORITY="${PRIORITY}" \
         GLUON_SITEDIR="${SITEDIR}" \
         GLUON_TARGET="${TARGET}" \
+        GLUON_DEPRECATED="${DEPRECATED}" \
         BROKEN="${BROKEN}" \
         download
   done
@@ -212,6 +218,7 @@ build() {
         GLUON_PRIORITY="${PRIORITY}" \
         GLUON_SITEDIR="${SITEDIR}" \
         GLUON_TARGET="${TARGET}" \
+        GLUON_DEPRECATED="${DEPRECATED}" \
         BROKEN="${BROKEN}" \
         all
   done
@@ -224,6 +231,7 @@ manifest() {
       GLUON_RELEASE="${RELEASE}" \
       GLUON_PRIORITY="${PRIORITY}" \
       GLUON_SITEDIR="${SITEDIR}" \
+      GLUON_DEPRECATED="${DEPRECATED}" \
       BROKEN="${BROKEN}" \
       manifest
 }
