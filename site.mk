@@ -1,3 +1,6 @@
+# Continue building deprecated targets
+GLUON_DEPRECATED ?= full
+
 GLUON_FEATURES := \
     autoupdater \
     alfred \
