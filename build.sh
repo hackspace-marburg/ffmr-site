@@ -16,7 +16,7 @@
 MAKEOPTS="-j 4 V=s"
 
 # Default to build all Gluon targets if parameter -t is not set
-TARGETS="ar71xx-generic ar71xx-nand ar71xx-tiny brcm2708-bcm2708 brcm2708-bcm2709 ipq40xx mpc85xx-generic ramips-mt7620 ramips-mt7621 ramips-mt76x8 ramips-rt305x sunxi-cortexa7 x86-64 x86-generic x86-geode"
+TARGETS="ar71xx-generic ar71xx-nand ar71xx-tiny ath79-generic brcm2708-bcm2708 brcm2708-bcm2709 ipq40xx-generic ipq806x-generic lantiq-xrx200 lantiq-xway mpc85xx-generic mpc85xx-p1020 ramips-mt7620 ramips-mt7621 ramips-mt76x8 ramips-rt305x sunxi-cortexa7 x86-generic x86-geode x86-64"
 
 # Specify if depricated targets should be build, e.g., ar71xx-tiny.
 DEPRECATED="1"
