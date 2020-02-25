@@ -54,6 +54,17 @@ rm -fR "${WORKSPACE}/gluon/images"
 ./build.sh -d -b "${GIT_BRANCH}" -c upload -n "${BUILD_NUMBER}-${BUILD_DATE}" -w "${WORKSPACE}" -m "V=s"
 ```
 
+Docker
+------
+
+The *gluon* submodule ships a `Dockerfile` to be used for building firmwares.
+
+```
+docker build -t gluon-builder -f gluon/contrib/Dockerfile .
+docker run -it -v `pwd`:/gluon gluon-builder bash
+# continue at *Build the firmware*
+```
+
 FAQ
 ---
 
