@@ -2,8 +2,8 @@
 GLUON_DEPRECATED ?= full
 
 GLUON_FEATURES := \
-    autoupdater \
     alfred \
+    autoupdater \
     ebtables-filter-multicast \
     ebtables-filter-ra-dhcp \
     mesh-batman-adv-15 \
@@ -18,8 +18,9 @@ GLUON_FEATURES := \
 
 GLUON_SITE_PACKAGES := \
     ffmr-yolokey-client \
-    iwinfo \
-    haveged
+    gluon-config-mode-geo-location-osm \
+    haveged \
+    iwinfo
 
 DEFAULT_GLUON_RELEASE := snapshot-$(shell date '+%Y%m%d%H%M%S')
 DEFAULT_GLUON_PRIORITY := 0
