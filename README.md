@@ -89,9 +89,3 @@ export PATH=… # your previous PATH, just without the hardening part
 unlink gluon/openwrt/staging_dir/host/bin/gcc
 ln -s /usr/bin/gcc gluon/openwrt/staging_dir/host/bin/gcc
 ```
-
-### Building manifest fails
-
-If building the `manifest` fails with an error like `/bin/sh: line 6:
-tmp/experimental.manifest.tmp: No such file or directory`, one must create the
-`gluon/tmp` directory.

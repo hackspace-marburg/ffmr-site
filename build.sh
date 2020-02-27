@@ -219,6 +219,7 @@ build() {
 
 manifest() {
   echo "--- Building Gluon Manifest: ${TARGET}"
+  [[ ! -d tmp ]] && mkdir tmp
   make ${MAKEOPTS} \
       GLUON_BRANCH="${BRANCH}" \
       GLUON_RELEASE="${RELEASE}" \
