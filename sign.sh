@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/usr/bin/env bash
 # =====================================================================
 # Downloads, signs and uploads a gluon manifest file.
 #
@@ -10,6 +10,8 @@
 # Contact: freifunk@hsmr.cc
 # Web: https://marburg.freifunk.net
 # =====================================================================
+
+set -e
 
 # Basic configuration
 SRV_USER="firmware"
