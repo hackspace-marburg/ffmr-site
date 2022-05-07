@@ -19,7 +19,6 @@ GLUON_FEATURES := \
 GLUON_SITE_PACKAGES := \
     ffmr-yolokey-client \
     gluon-config-mode-geo-location-osm \
-    haveged \
     iwinfo
 
 DEFAULT_GLUON_RELEASE := snapshot-$(shell date '+%Y%m%d%H%M%S')

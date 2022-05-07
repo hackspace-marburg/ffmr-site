@@ -2,6 +2,6 @@
 #
 GLUON_SITE_FEEDS='ffmr_packages'
 
-PACKAGES_FFMR_PACKAGES_REPO=git://github.com/hackspace-marburg/ffmr-packages.git
+PACKAGES_FFMR_PACKAGES_REPO=https://github.com/hackspace-marburg/ffmr-packages.git
 PACKAGES_FFMR_PACKAGES_COMMIT=dbaea9ed627fef500ff71fc834a506748fbb9b34
 PACKAGES_FFMR_PACKAGES_BRANCH=v2018.1.x
