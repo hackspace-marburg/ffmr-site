@@ -60,8 +60,8 @@ Docker
 The *gluon* submodule ships a `Dockerfile` to be used for building firmwares.
 
 ```
-docker build -t gluon-builder -f gluon/contrib/Dockerfile .
-docker run -it -v `pwd`:/gluon gluon-builder bash
+docker build -t gluon-builder -f gluon/contrib/docker/Dockerfile .
+docker run -it -v $PWD:/gluon gluon-builder bash
 # continue at *Build the firmware*
 ```
 
